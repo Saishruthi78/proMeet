@@ -233,7 +233,7 @@ const MainMenu = () => {
 
   <MenuItemCard
     img="/assets/recordings2.svg"
-    title="Recordings"
+    title=" shruthi's Recordings"
     bgColor="bg-blue-600"
     hoverColor= 'hover:bg-blue-800'
     handleClick={() => router.push('/recordings')}

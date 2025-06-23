@@ -3,6 +3,7 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { StreamClient } from "@stream-io/node-sdk";
 
+// Use the environment variables for your API keys
 const streamApiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
 const streamSecretKey = process.env.STREAM_SECRET_KEY;
 
@@ -15,14 +16,14 @@ export const tokenProvider = async () => {
     const client = new StreamClient(streamApiKey, streamSecretKey);
     const userId: string = user.id;
 
-    // token is valid for an hour
-    const vailidity = 60 * 60;
+    // Token is valid for an hour
+    const validity = 60 * 60;
     const token = client.generateUserToken(
         { 
           user_id: userId, 
-          validity_in_seconds: vailidity 
+          validity_in_seconds: validity 
         }
-      );
+    );
 
-      return token as string;
+    return token as string;
 }
